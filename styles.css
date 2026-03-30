@@ -1,0 +1,480 @@
+/* ============================================
+   AVENGERS CLEANING SERVICES — OFFICE LANDING
+   Custom Styles
+   ============================================ */
+
+/* ---------- Fonts ---------- */
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Inter:wght@400;500;600;700&display=swap');
+
+/* ---------- Root Variables ---------- */
+:root {
+  --navy:  #0D1B3E;
+  --cyan:  #00AEEF;
+  --green: #6CC04A;
+  --white: #FFFFFF;
+  --light: #F4F7FB;
+  --dark-navy: #081328;
+}
+
+/* ---------- Reset & Base ---------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', sans-serif;
+  background: #fff;
+  color: var(--navy);
+  overflow-x: hidden;
+}
+
+/* ---------- Typography ---------- */
+.font-condensed { font-family: 'Barlow Condensed', sans-serif; }
+
+/* ---------- Outline / Stroke Text ---------- */
+.text-outline-white {
+  -webkit-text-stroke: 3px #ffffff;
+  color: transparent;
+}
+.text-outline-cyan {
+  -webkit-text-stroke: 3px var(--cyan);
+  color: transparent;
+}
+@media (max-width: 768px) {
+  .text-outline-white { -webkit-text-stroke: 2px #ffffff; }
+  .text-outline-cyan  { -webkit-text-stroke: 2px var(--cyan); }
+}
+
+/* ---------- Marquee Strip ---------- */
+.marquee-wrapper {
+  overflow: hidden;
+  width: 100%;
+  background: var(--cyan);
+  padding: 14px 0;
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+}
+.marquee-track:hover { animation-play-state: paused; }
+.marquee-item {
+  white-space: nowrap;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: 1.1rem;
+  letter-spacing: 0.08em;
+  color: var(--navy);
+  text-transform: uppercase;
+  padding: 0 2.5rem;
+}
+.marquee-dot {
+  color: var(--navy);
+  opacity: 0.5;
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ---------- Navbar ---------- */
+#navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  background: var(--navy);
+  transition: box-shadow 0.3s ease;
+}
+#navbar.scrolled {
+  box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+}
+
+/* ---------- Hero Section ---------- */
+#hero {
+  background: var(--navy);
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  padding-top: 80px;
+}
+.hero-headline {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  line-height: 0.9;
+  color: #fff;
+}
+
+/* Hero photo cards */
+.hero-card {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  position: absolute;
+}
+.hero-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.hero-card-1 {
+  width: 320px;
+  height: 390px;
+  top: 5%;
+  right: 2%;
+}
+.hero-card-2 {
+  width: 460px;
+  height: 270px;
+  bottom: 8%;
+  right: 2%;
+}
+@media (max-width: 1024px) {
+  .hero-card-1 { width: 220px; height: 270px; }
+  .hero-card-2 { width: 300px; height: 180px; bottom: 10%; }
+}
+@media (max-width: 768px) {
+  .hero-card { display: none; }
+}
+
+/* Decorative background grid lines */
+#hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+/* ---------- CTA Buttons ---------- */
+.btn-green {
+  display: inline-block;
+  background: var(--green);
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 14px 32px;
+  border-radius: 100px;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.2s;
+  border: none;
+  cursor: pointer;
+  letter-spacing: 0.02em;
+}
+.btn-green:hover {
+  background: #5ab23a;
+  transform: translateY(-2px);
+}
+.btn-outline-white {
+  display: inline-block;
+  border: 2px solid rgba(255,255,255,0.5);
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 13px 30px;
+  border-radius: 100px;
+  text-decoration: none;
+  transition: border-color 0.2s, background 0.2s;
+}
+.btn-outline-white:hover {
+  border-color: #fff;
+  background: rgba(255,255,255,0.1);
+}
+
+/* ---------- Social Proof Strip ---------- */
+#social-proof {
+  background: #fff;
+  border-bottom: 1px solid #e8edf5;
+}
+.proof-divider {
+  width: 1px;
+  height: 40px;
+  background: #dce4ef;
+}
+
+/* ---------- Why Avengers Section ---------- */
+#why-avengers {
+  background: var(--navy);
+  position: relative;
+  overflow: hidden;
+}
+.why-headline {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  line-height: 0.9;
+}
+.why-card {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.35);
+}
+
+/* ---------- Services / Accordion ---------- */
+#services {
+  background: var(--light);
+}
+.accordion-item {
+  border-bottom: 1px solid #dce4ef;
+  overflow: hidden;
+}
+.accordion-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1.5rem 0;
+  cursor: pointer;
+  background: none;
+  border: none;
+  text-align: left;
+  transition: opacity 0.2s;
+}
+.accordion-trigger:hover { opacity: 0.75; }
+.accordion-num {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--cyan);
+  letter-spacing: 0.05em;
+  min-width: 36px;
+}
+.accordion-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--navy);
+  letter-spacing: 0.01em;
+  flex: 1;
+  margin-left: 1rem;
+}
+.accordion-icon {
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: var(--navy);
+  transition: transform 0.3s ease;
+  line-height: 1;
+  min-width: 24px;
+  text-align: center;
+}
+.accordion-item.open .accordion-icon { transform: rotate(45deg); }
+.accordion-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.accordion-body-inner {
+  padding: 0 0 1.5rem 3.5rem;
+  color: #4a5568;
+  font-size: 1rem;
+  line-height: 1.7;
+  max-width: 640px;
+}
+
+/* ---------- USP Grid ---------- */
+#usps {
+  background: #fff;
+}
+.usp-card {
+  background: var(--light);
+  border-radius: 16px;
+  padding: 2rem;
+  border: 1px solid #e2eaf6;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.usp-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 48px rgba(13,27,62,0.12);
+}
+.usp-icon {
+  width: 52px;
+  height: 52px;
+  background: var(--navy);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+/* ---------- Testimonial ---------- */
+#testimonial {
+  background: #fff;
+  position: relative;
+  overflow: hidden;
+}
+.testimonial-quote {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 0.96;
+  letter-spacing: -0.01em;
+}
+.testimonial-highlight {
+  font-style: italic;
+  -webkit-text-stroke: 2px var(--navy);
+  color: transparent;
+}
+.testimonial-card {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+}
+
+/* ---------- Service Areas ---------- */
+#service-areas {
+  background: var(--navy);
+  position: relative;
+}
+.area-tag {
+  display: inline-block;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.85);
+  border-radius: 100px;
+  padding: 5px 16px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin: 4px;
+  transition: background 0.2s;
+}
+.area-tag:hover {
+  background: rgba(0,174,239,0.2);
+  border-color: var(--cyan);
+  color: #fff;
+}
+
+/* ---------- Final CTA ---------- */
+#final-cta {
+  background: linear-gradient(135deg, #0077cc 0%, var(--cyan) 100%);
+  position: relative;
+  overflow: hidden;
+}
+#final-cta::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 320px; height: 320px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 50%;
+}
+#final-cta::after {
+  content: '';
+  position: absolute;
+  bottom: -80px; left: -40px;
+  width: 240px; height: 240px;
+  background: rgba(255,255,255,0.04);
+  border-radius: 50%;
+}
+
+/* ---------- Footer ---------- */
+#footer {
+  background: var(--dark-navy);
+}
+.footer-link {
+  color: rgba(255,255,255,0.55);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+.footer-link:hover { color: #fff; }
+
+/* ---------- Hero CSS Animations (no GSAP dependency) ---------- */
+@keyframes heroSlideUp {
+  from { opacity: 0; transform: translateY(60px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes heroFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes heroCardPop {
+  from { opacity: 0; transform: scale(0.85); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.hero-line {
+  animation: heroSlideUp 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.hero-line:nth-child(1) { animation-delay: 0.1s; }
+.hero-line:nth-child(2) { animation-delay: 0.22s; }
+.hero-line:nth-child(3) { animation-delay: 0.34s; }
+.hero-line:nth-child(4) { animation-delay: 0.46s; }
+
+.hero-sub {
+  animation: heroSlideUp 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.55s both;
+}
+
+.hero-card-1 {
+  animation: heroCardPop 1s cubic-bezier(0.22, 1, 0.36, 1) 0.4s both;
+}
+.hero-card-2 {
+  animation: heroCardPop 1s cubic-bezier(0.22, 1, 0.36, 1) 0.6s both;
+}
+
+/* ---------- Scroll Reveal (CSS-based, no GSAP needed) ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* ---------- Phone Link ---------- */
+.phone-link {
+  color: #fff;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  transition: opacity 0.2s;
+}
+.phone-link:hover { opacity: 0.8; }
+
+/* ---------- Stars ---------- */
+.stars { color: #F5A623; letter-spacing: 2px; }
+
+/* ---------- Wavy Underline ---------- */
+.wavy-underline {
+  text-decoration: underline;
+  text-decoration-style: wavy;
+  text-underline-offset: 4px;
+  text-decoration-color: var(--cyan);
+}
+
+/* ---------- Section Label ---------- */
+.section-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+/* ---------- Green Accent Bar ---------- */
+.green-bar {
+  width: 48px;
+  height: 4px;
+  background: var(--green);
+  border-radius: 2px;
+  margin-top: 0.75rem;
+}
+
+/* ---------- Responsive Utilities ---------- */
+@media (max-width: 640px) {
+  .accordion-title { font-size: 1.25rem; }
+  .testimonial-quote { font-size: clamp(2rem, 8vw, 3rem); }
+}
