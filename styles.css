@@ -441,6 +441,9 @@ body {
   transition: opacity 0.2s;
 }
 .phone-link:hover { opacity: 0.8; }
+@media (max-width: 640px) {
+  .navbar-phone { display: none; }
+}
 
 /* ---------- Stars ---------- */
 .stars { color: #F5A623; letter-spacing: 2px; }
