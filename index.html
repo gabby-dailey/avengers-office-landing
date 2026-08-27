@@ -773,5 +773,17 @@
   }
 </style>
 
+
+<script>
+  (function () {
+    var src = new URLSearchParams(window.location.search);
+    if (!src.toString()) return;
+    document.querySelectorAll('a[href*="avengerscleaningservices.com/get-quote"]').forEach(function (a) {
+      var url = new URL(a.href);
+      src.forEach(function (v, k) { if (!url.searchParams.has(k)) url.searchParams.set(k, v); });
+      a.href = url.toString();
+    });
+  })();
+</script>
 </body>
 </html>
